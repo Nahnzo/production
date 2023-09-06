@@ -34,6 +34,14 @@ module.exports = {
     "no-underscore-dangle": "off",
     "i18next/no-literal-string": ["error", { markupOnly: true }],
     "max-len": ["off", { ignoreComments: true }],
+    "arrow-body-style": ["off", 0],
+    "react/self-closing-comp": [
+      "off",
+      {
+        component: true,
+        html: true,
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
