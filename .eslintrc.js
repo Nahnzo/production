@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "i18next"],
   rules: {
+    "object-curly-newline": ["off"],
     "linebreak-style": ["off", "windows"],
     quotes: "off",
     indent: [0, 2],
