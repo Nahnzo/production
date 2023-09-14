@@ -11,10 +11,10 @@ function Navbar({ className }: NavbarProps) {
     <div className={classNames(styles.Navbar, {}, [className])}>
       <div className={styles.links}>
         <AppLink theme={AppLinkTheme.SECONDARY} to="/" className={styles.mainLink}>
-                    Главная
+          Главная
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
-                    O Сайте
+          O Сайте
         </AppLink>
       </div>
     </div>
