@@ -18,12 +18,15 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
     "object-curly-newline": ["off"],
     "linebreak-style": ["off", "windows"],
     quotes: "off",
     indent: [0, 2],
+    "import/no-duplicates": "off",
     "react/jsx-indent": [0, 4],
     "react/jsx-indent-props": [0, 4],
     "react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".tsx"] }],
@@ -41,6 +44,8 @@ module.exports = {
     "i18next/no-literal-string": ["off", { markupOnly: true, ignoreAttribute: [""] }],
     "max-len": ["off", { ignoreComments: true }],
     "arrow-body-style": ["off", 0],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "react/self-closing-comp": [
       "off",
       {
