@@ -17,6 +17,11 @@
   margin-left: 20px;
 }
 
+.link {
+  margin-left: 10px;
+  opacity: 1;
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -51,11 +56,6 @@
   margin-top: 10px;
   display: flex;
   align-self: center;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
 }
 
 .icon {
