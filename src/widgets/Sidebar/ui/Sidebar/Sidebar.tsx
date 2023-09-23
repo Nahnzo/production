@@ -43,7 +43,7 @@ function Sidebar({ className }: SidebarProps) {
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={styles.item}>
           <AboutIcon className={styles.icon} />
-          <span className={styles.link}>{t("О Сайте")}</span>
+          <span className={styles.link}>{t("О сайте")}</span>
         </AppLink>
       </div>
       <div className={styles.swithers}>
