@@ -11,6 +11,9 @@
   "Главная": "Main",
   "O сайте": "About us",
   "Войти": "Sing in",
+  "Выйти": "Log out",
   "Введите логин": "Type Login",
-  "Введите пароль": "Type Password"
+  "Введите пароль": "Type Password",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неверный логин или пароль": "Incorrect username or password"
 }
