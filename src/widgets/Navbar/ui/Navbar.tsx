@@ -43,7 +43,7 @@ function Navbar({ className }: NavbarProps) {
       <Button className={styles.links} theme={ThemeButton.CLEAR_INVERTED} onClick={onShowModal}>
         {t("Войти")}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   );
 }
