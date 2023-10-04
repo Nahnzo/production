@@ -8,6 +8,7 @@ import Text, { TextTheme } from "shared/ui/Text/Text";
 import DynamicModuleLoader, {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -18,13 +19,14 @@ import styles from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
-  const dispatch = useDispatch();
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
@@ -43,9 +45,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ password, username }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ password, username }));
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
+    }
+  }, [dispatch, password, username, onSuccess]);
 
   const { t } = useTranslation();
 
