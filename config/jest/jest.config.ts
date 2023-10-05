@@ -27,6 +27,7 @@ export default {
   rootDir: "../../",
   globals: {
     __IS_DEV__: true,
+    __API__: "",
   },
   moduleNameMapper: {
     "\\.(s?css|less)$": "identity-obj-proxy",

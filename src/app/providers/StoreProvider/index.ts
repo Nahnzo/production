@@ -1,6 +1,6 @@
 import { loginReducer } from "feautures/AuthByUsername/model/slice/loginSlice";
 import StoreProvider from "./ui/StoreProvider";
-import type { StateScheme, ReduxStoreWithManager } from "./config/StateSchema";
+import type { StateScheme, ReduxStoreWithManager, ThunkConfig } from "./config/StateSchema";
 import { createReduxStore, AppDispatch } from "./config/store";
 
 export {
@@ -10,4 +10,5 @@ export {
   loginReducer,
   ReduxStoreWithManager,
   AppDispatch,
+  ThunkConfig,
 };
