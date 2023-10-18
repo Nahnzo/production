@@ -1,5 +1,13 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import { ReactEventHandler, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { Mods, classNames } from "shared/lib/classNames/classNames";
+import {
+  MutableRefObject,
+  ReactEventHandler,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useTheme } from "app/providers/ThemeProvider";
 import React from "react";
 import styles from "./Modal.module.scss";
@@ -20,7 +28,7 @@ const Modal = (props: ModalProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { className, children, isOpen, onClose, lazy } = props;
   const { theme } = useTheme();
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   useEffect(() => {
     if (isOpen) {
@@ -57,7 +65,7 @@ const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [styles.opened]: isOpen,
     [styles.isClosing]: isClosing,
   };
