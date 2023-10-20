@@ -1,5 +1,17 @@
 {
   "Редактировать": "Edit",
   "Ваше имя": "Your name",
-  "Ваша фамилия": "Your lastname"
+  "Ваша фамилия": "Your lastname",
+  "Произошла ошибка при загрузке профиля": "Something went wrong",
+  "Попробуйте обновить страницу": "Try to reload the page",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+  "Ваш возвраст": "Your age",
+  "Ваш город": "Your city",
+  "Вставьте ссылку на аватар": "Past a link to your avatar",
+  "Введите имя пользователя": "Your nickname",
+  "Аватар пользователя": "Profile image",
+  "Профиль": "Profile",
+  "Укажите валюту": "Currency",
+  "Укажите страну": "Country"
 }
