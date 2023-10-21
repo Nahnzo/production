@@ -13,5 +13,10 @@
   "Аватар пользователя": "Profile image",
   "Профиль": "Profile",
   "Укажите валюту": "Currency",
-  "Укажите страну": "Country"
+  "Укажите страну": "Country",
+  "Ошибка на сервере": "Server error",
+  "Некорректный возвраст": "Incorrect age",
+  "Некоректный регион": "Incorrect country",
+  "Имя и фамилия обязательны": "Incorrect firstname and lastname",
+  "Данные не указаны": "Data is required"
 }

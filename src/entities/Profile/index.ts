@@ -7,6 +7,7 @@ import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProf
 import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 import { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+import { getProfileValidateErrors } from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import ProfileCard from "./ui/ProfileCard/ProfileCard";
 
 export { Profile, ProfileSchema };
@@ -22,4 +23,5 @@ export {
   getProfileReadonly,
   getProfileForm,
   updateProfileData,
+  getProfileValidateErrors,
 };
