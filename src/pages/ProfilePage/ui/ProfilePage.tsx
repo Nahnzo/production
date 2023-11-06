@@ -20,6 +20,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch"
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import Text, { TextTheme } from "shared/ui/Text/Text";
+import { useParams } from "react-router-dom";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import { ValidateProfileError } from "..";
 
@@ -29,6 +30,7 @@ const reducers: ReducersList = {
 
 function ProfilePage() {
   const { t } = useTranslation("profile");
+  const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -43,8 +45,10 @@ function ProfilePage() {
     [ValidateProfileError.NO_DATA]: t("Данные не указаны"),
   };
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  }, [dispatch, id]);
 
   const onChangeFirstName = useCallback(
     (value?: string) => {

@@ -11,6 +11,8 @@ import { CounterScheme } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "feautures/AuthByUsername";
+import { AddCommentFormSchema } from "feautures/addCommentForm";
+import { ArticleDetailsCommentSchema } from "pages/ArticlesDetailPage";
 import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateScheme {
@@ -21,6 +23,8 @@ export interface StateScheme {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailComments?: ArticleDetailsCommentSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 export type StateSchemaKey = keyof StateScheme;
 export interface ReducerManager {

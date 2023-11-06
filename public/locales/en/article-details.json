@@ -1,4 +1,7 @@
 {
   "Статья не найдена": "Article not found",
-  "Произошла ошибка при загрузке статьи": "Something went wrong :( "
+  "Произошла ошибка при загрузке статьи": "Something went wrong :( ",
+  "Комментарии": "Comments",
+  "Введите текст комментария": "Leave your comment",
+  "Отправить": "Send"
 }
