@@ -3,9 +3,10 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import Button, { ButtonSize, ThemeButton } from "shared/ui/Button/Button";
 import LangSwitcher from "widgets/LangSwitcher/LangSwitcher";
+import { useSelector } from "react-redux";
 import styles from "./Sidebar.module.scss";
-import { SidebarItemsList } from "./model/items";
 import SidebarItem from "../SidebarItem/SidebarItem";
+import { getSidebarItems } from "./model/selectors/getSidebarItems";
 
 interface SidebarProps {
   className?: string;
@@ -17,12 +18,12 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
-
+  const sidebarItemsList = useSelector(getSidebarItems);
   const itemsList = useMemo(() => {
-    return SidebarItemsList.map((item) => (
+    return sidebarItemsList?.map((item) => (
       <SidebarItem item={item} collapsed={collapsed} key={item.path} />
     ));
-  }, [collapsed]);
+  }, [collapsed, sidebarItemsList]);
 
   return (
     <div
