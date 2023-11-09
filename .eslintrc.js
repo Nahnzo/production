@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
+    "implicit-arrow-linebreak": "off",
     "react/no-array-index-key": "off",
     "no-undef": "off",
     "comma-dangle": "off",
