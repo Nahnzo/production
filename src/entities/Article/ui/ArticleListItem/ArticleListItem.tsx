@@ -60,8 +60,8 @@ const ArticleListItem = (props: ArticleListItemProps) => {
           <div className={styles.footer}>
             <Button theme={ThemeButton.OUTLINE} onClick={onOpenArticle}>
               {t("Читать далее")}
-              {views}
             </Button>
+            {views}
           </div>
         </Card>
       </div>
