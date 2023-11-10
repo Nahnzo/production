@@ -9,8 +9,7 @@ import { createReducerManager } from "./reducerManager";
 
 export function createReduxStore(
   initialState?: StateScheme,
-  asyncReducers?: ReducersMapObject<StateScheme>,
-  navigate?: (to: To, options?: NavigateOptions) => void
+  asyncReducers?: ReducersMapObject<StateScheme>
 ) {
   const rootReducers: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
@@ -20,7 +19,6 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArg = {
     api: $api,
-    navigate,
   };
 
   const reducerManager = createReducerManager(rootReducers);
