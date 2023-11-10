@@ -22,7 +22,7 @@ import { Country } from "entities/Country";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import { ValidateProfileError } from "..";
 

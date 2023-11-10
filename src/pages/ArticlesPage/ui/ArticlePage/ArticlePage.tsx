@@ -6,7 +6,7 @@ import DynamicModuleLoader, {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 import { articlesPageActions, articlesPageReducer, getArticles } from "./slices/articlesPageSlice";
 import { fetchArticlesList } from "./services/fetchArticlesList/fetchArticlesList";
 import styles from "./ArticlePage.module.scss";
