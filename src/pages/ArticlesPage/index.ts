@@ -1,4 +1,5 @@
+import { ArticleType } from "entities/Article/model/types/article";
 import { ArticlePageAsync as ArticlePage } from "./ui/ArticlePage/ArticlePage.async";
-import { ArticlesPageSchema } from "./ui/ArticlePage/types/articlesPageSchema";
+import { ArticlesPageSchema } from "./model/types/articlesPageSchema";
 
-export { ArticlePage, ArticlesPageSchema };
+export { ArticlePage, ArticlesPageSchema, ArticleType };
