@@ -2,4 +2,8 @@ import { ArticlesDetailPageAsync as ArticlesDetailPage } from "./ui/ArticlesDeta
 
 import { ArticleDetailsCommentSchema } from "./model/types/ArticleDetailCommentsSchema";
 
-export { ArticlesDetailPage, ArticleDetailsCommentSchema };
+import { ArticleDetailRecommendationSchema } from "./model/types/ArticleDetailRecommendationSchema";
+
+export { ArticlesDetailPage, ArticleDetailsCommentSchema, ArticleDetailRecommendationSchema };
+
+export { ArticleDetailPageSchema } from "./model/types";

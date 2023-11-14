@@ -13,9 +13,8 @@ import { UserSchema } from "entities/User";
 import { LoginSchema } from "feautures/AuthByUsername";
 import { SavePositionScrollSchema } from "feautures/SavePositionScroll";
 import { AddCommentFormSchema } from "feautures/addCommentForm";
-import { ArticleDetailsCommentSchema } from "pages/ArticlesDetailPage";
+import { ArticleDetailPageSchema } from "pages/ArticlesDetailPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateScheme {
   counter: CounterScheme;
@@ -26,9 +25,9 @@ export interface StateScheme {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailComments?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailPage?: ArticleDetailPageSchema;
 }
 export type StateSchemaKey = keyof StateScheme;
 export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
