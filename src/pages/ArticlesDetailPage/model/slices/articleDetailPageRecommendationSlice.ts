@@ -38,5 +38,6 @@ const articleDetailPageRecommendationSlice = createSlice({
   },
 });
 
+// eslint-disable-next-line operator-linebreak
 export const { reducer: articleDetailPageRecommendationReducer } =
   articleDetailPageRecommendationSlice;

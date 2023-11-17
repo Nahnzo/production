@@ -5,6 +5,9 @@ import { LoginModal } from "feautures/AuthByUsername";
 import Button, { ThemeButton } from "shared/ui/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import Text, { TextTheme } from "shared/ui/Text/Text";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -31,6 +34,14 @@ const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(styles.Navbar, {}, [className])}>
+        <Text className={styles.appName} title={t("SNGLRTY APP")} theme={TextTheme.INVERTED} />
+        <AppLink
+          to={RoutePath.articles_create}
+          theme={AppLinkTheme.SECONDARY}
+          className={styles.createBtn}
+        >
+          {t("Создать статью")}
+        </AppLink>
         <Button className={styles.links} theme={ThemeButton.CLEAR_INVERTED} onClick={onLogout}>
           {t("Выйти")}
         </Button>

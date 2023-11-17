@@ -29,6 +29,7 @@ import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailPage/mod
 import { fetchArticleRecommendations } from "pages/ArticlesDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailPageReducer } from "pages/ArticlesDetailPage/model/slices";
 import styles from "./ArticlesDetailPage.module.scss";
+import ArticleDetailPageHeader from "../ArticleDetailPageHeader/ArticleDetailPageHeader";
 
 interface ArticlesDetailPageProps {
   className?: string;
@@ -46,10 +47,7 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
   const recommendations = useSelector(getArticlesRecommendations.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-  const navigate = useNavigate();
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
+
   const dispatch = useAppDispatch();
   const onSendComment = useCallback(
     (text: string) => {
@@ -74,9 +72,7 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(styles.ArticlesDetailPage, {}, [className])}>
-        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-          {t("Назад к списку")}
-        </Button>
+        <ArticleDetailPageHeader />
         <ArticleDetails id={id} />
         <Text size={TextSize.L} title={t("рекомендуем")} className={styles.commentTitle} />
         <ArticleList
