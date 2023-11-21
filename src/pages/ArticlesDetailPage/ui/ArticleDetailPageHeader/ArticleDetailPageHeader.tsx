@@ -6,7 +6,7 @@ import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import Button, { ThemeButton } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "entities/Article/model/selectros/getArticleDetailsData";
-import { getCanEditArticle } from "pages/ArticlesDetailPage/model/selectors/article";
+import { getCanEditArticle } from "../../model/selectors/article";
 import styles from "./ArticleDetailPageHeader.module.scss";
 
 interface ArticleDetailPageHeaderProps {

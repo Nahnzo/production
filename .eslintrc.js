@@ -18,8 +18,9 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks", "ulbi-tv-plugin"],
   rules: {
+    "ulbi-tv-plugin/path-checker": "error",
     "implicit-arrow-linebreak": "off",
     "react/no-array-index-key": "off",
     "no-undef": "off",

@@ -8,26 +8,26 @@ import { CommentList } from "entities/Comment";
 import DynamicModuleLoader, {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articleDetailCommentsReducer,
-  getArticlesComments,
-} from "pages/ArticlesDetailPage/model/slices/articleDetailCommentsSlice";
 import { useSelector } from "react-redux";
-import { getArticleCommentsIsLoading } from "pages/ArticlesDetailPage/model/selectors/comments";
 import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
-import { fetchCommentsByArticleId } from "pages/ArticlesDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { AddCommentForm } from "feautures/addCommentForm";
-import { addCommentForArticle } from "pages/ArticlesDetailPage/model/services/addCommentForArticle/addCommentForArticle";
 import Button, { ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import Page from "widgets/Page/Page";
 import {
+  articleDetailCommentsReducer,
+  getArticlesComments,
+} from "../../model/slices/articleDetailCommentsSlice";
+import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
+import {
   articleDetailPageRecommendationReducer,
   getArticlesRecommendations,
-} from "pages/ArticlesDetailPage/model/slices/articleDetailPageRecommendationSlice";
-import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailPage/model/selectors/recommendations";
-import { fetchArticleRecommendations } from "pages/ArticlesDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import { articleDetailPageReducer } from "pages/ArticlesDetailPage/model/slices";
+} from "../../model/slices/articleDetailPageRecommendationSlice";
+import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailPageReducer } from "../../model/slices";
 import styles from "./ArticlesDetailPage.module.scss";
 import ArticleDetailPageHeader from "../ArticleDetailPageHeader/ArticleDetailPageHeader";
 

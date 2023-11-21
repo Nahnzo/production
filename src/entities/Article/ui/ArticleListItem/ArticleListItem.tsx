@@ -1,10 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from "entities/Article/model/types/article";
 import { useTranslation } from "react-i18next";
 import Text from "shared/ui/Text/Text";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";
@@ -16,6 +10,12 @@ import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { HTMLAttributeAnchorTarget } from "react";
+import {
+  Article,
+  ArticleBlockType,
+  ArticleTextBlock,
+  ArticleView,
+} from "../../model/types/article";
 import styles from "./ArticleListItem.module.scss";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 

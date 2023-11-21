@@ -7,24 +7,24 @@ import {
   ArticleViewSelectors,
 } from "entities/Article";
 import { useSelector } from "react-redux";
+import { memo, useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import Card from "shared/ui/Card/Card";
+import Input from "shared/ui/Input/Input";
+import ArticleSortSelector from "entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
+import { SortOrder } from "shared/types";
+import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
+import Tabs, { TabsItem } from "shared/ui/Tabs/Tabs";
+import { ArticleType } from "entities/Article/model/types/article";
+import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
+import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView,
-} from "pages/ArticlesPage/model/selectors/articlesPageSelectors";
-import { memo, useCallback, useMemo } from "react";
-import { articlesPageActions } from "pages/ArticlesPage/model/slices/articlesPageSlice";
-import { useTranslation } from "react-i18next";
-import Card from "shared/ui/Card/Card";
-import Input from "shared/ui/Input/Input";
-import ArticleSortSelector from "entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
-import { SortOrder } from "shared/types";
-import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
-import Tabs, { TabsItem } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "entities/Article/model/types/article";
+} from "../../model/selectors/articlesPageSelectors";
 import styles from "./ArticlePageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {
