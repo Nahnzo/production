@@ -13,7 +13,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch"
 import { getUserAuthData } from "entities/User";
 import Text from "shared/ui/Text/Text";
 import Button from "shared/ui/Button/Button";
-import styles from "./ProfilePageHeader.module.scss";
+import HStack from "shared/ui/Stack/HStack/HStack";
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -38,31 +38,27 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames(" ", {}, [className])}>
       <Text title={t("Профиль")} />
       {canEdit && (
-        <div className={styles.btnWrapper}>
+        <div>
           {readonly ? (
-            <Button theme={ThemeButton.OUTLINE} className={styles.editBtn} onClick={onEdit}>
+            <Button theme={ThemeButton.OUTLINE} onClick={onEdit}>
               {t("Редактировать")}
             </Button>
           ) : (
-            <>
-              <Button
-                theme={ThemeButton.OUTLINE_RED}
-                className={styles.editBtn}
-                onClick={onCancelEdit}
-              >
+            <HStack gap="8">
+              <Button theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit}>
                 {t("Отменить")}
               </Button>
-              <Button theme={ThemeButton.OUTLINE} className={styles.saveBtn} onClick={onSave}>
+              <Button theme={ThemeButton.OUTLINE} onClick={onSave}>
                 {t("Сохранить")}
               </Button>
-            </>
+            </HStack>
           )}
         </div>
       )}
-    </div>
+    </HStack>
   );
 };
 

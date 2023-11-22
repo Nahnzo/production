@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { memo, useCallback, useEffect } from "react";
 import { ArticleDetails, ArticleList } from "entities/Article";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Text, { TextSize } from "shared/ui/Text/Text";
 import { CommentList } from "entities/Comment";
 import DynamicModuleLoader, {
@@ -11,20 +11,13 @@ import DynamicModuleLoader, {
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
 import { AddCommentForm } from "feautures/addCommentForm";
-import Button, { ThemeButton } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { VStack } from "shared/ui/Stack";
 import Page from "widgets/Page/Page";
-import {
-  articleDetailCommentsReducer,
-  getArticlesComments,
-} from "../../model/slices/articleDetailCommentsSlice";
+import { getArticlesComments } from "../../model/slices/articleDetailCommentsSlice";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
-import {
-  articleDetailPageRecommendationReducer,
-  getArticlesRecommendations,
-} from "../../model/slices/articleDetailPageRecommendationSlice";
+import { getArticlesRecommendations } from "../../model/slices/articleDetailPageRecommendationSlice";
 import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailPageReducer } from "../../model/slices";
@@ -72,18 +65,20 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(styles.ArticlesDetailPage, {}, [className])}>
-        <ArticleDetailPageHeader />
-        <ArticleDetails id={id} />
-        <Text size={TextSize.L} title={t("рекомендуем")} className={styles.commentTitle} />
-        <ArticleList
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          className={styles.recommendations}
-          target="_blank"
-        />
-        <Text size={TextSize.L} title={t("Комментарии")} className={styles.commentTitle} />
-        <AddCommentForm onSendComment={onSendComment} />
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
+        <VStack gap="16" max>
+          <ArticleDetailPageHeader />
+          <ArticleDetails id={id} />
+          <Text size={TextSize.L} title={t("рекомендуем")} className={styles.commentTitle} />
+          <ArticleList
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            className={styles.recommendations}
+            target="_blank"
+          />
+          <Text size={TextSize.L} title={t("Комментарии")} className={styles.commentTitle} />
+          <AddCommentForm onSendComment={onSendComment} />
+          <CommentList isLoading={commentsIsLoading} comments={comments} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

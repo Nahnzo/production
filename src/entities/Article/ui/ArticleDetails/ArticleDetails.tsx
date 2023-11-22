@@ -10,6 +10,7 @@ import DynamicModuleLoader, {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
+import { HStack, VStack } from "shared/ui/Stack";
 import { useSelector } from "react-redux";
 import Text, { TextAlign, TextSize } from "shared/ui/Text/Text";
 import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
@@ -76,23 +77,25 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={styles.avatarWrapper}>
+        <HStack justify="center" max className={styles.avatarWrapper}>
           <Avatar size={200} src={article?.img} />
-        </div>
-        <Text
-          title={article?.title}
-          text={article?.subtitle}
-          className={styles.title}
-          size={TextSize.L}
-        />
-        <div className={styles.articleInfo}>
-          <Icon className={styles.icon} Svg={EyeIcon} />
-          <Text text={String(article?.views)} />
-        </div>
-        <div className={styles.articleInfo}>
-          <Icon className={styles.icon} Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
-        </div>
+        </HStack>
+        <VStack gap="4" max>
+          <Text
+            title={article?.title}
+            text={article?.subtitle}
+            className={styles.title}
+            size={TextSize.L}
+          />
+          <HStack gap="8" className={styles.articleInfo}>
+            <Icon className={styles.icon} Svg={EyeIcon} />
+            <Text text={String(article?.views)} />
+          </HStack>
+          <HStack gap="8" className={styles.articleInfo}>
+            <Icon className={styles.icon} Svg={CalendarIcon} />
+            <Text text={article?.createdAt} />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </>
     );
@@ -100,7 +103,9 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.ArticleDetails, {}, [className])}>{content}</div>
+      <VStack gap="16" className={classNames(styles.ArticleDetails, {}, [className])}>
+        {content}
+      </VStack>
     </DynamicModuleLoader>
   );
 });
