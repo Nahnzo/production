@@ -1,7 +1,6 @@
-import { Currency } from "entities/Currency";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import Select from "shared/ui/Select/Select";
+import ListBox from "shared/ui/ListBox/ListBox";
 import { Country } from "../../index";
 
 const options = [
@@ -37,16 +36,23 @@ interface CountrySelectProps {
 const CountrySelect = memo((props: CountrySelectProps) => {
   const { className, value, onChange, readonly } = props;
   const { t } = useTranslation();
-  const onChangeHandler = useCallback(() => {
-    onChange?.(value as Country);
-  }, [value, onChange]);
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as Country);
+    },
+    [onChange]
+  );
+
   return (
-    <Select
-      label={t("Укажите страну")}
-      options={options}
-      value={value}
+    <ListBox
+      className={className}
       onChange={onChangeHandler}
+      value={value}
+      items={options}
+      defaultValue={t("Укажите страну")}
       readonly={readonly}
+      label={t("Укажите страну")}
+      direction="top"
     />
   );
 });

@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
+import ListBox from "shared/ui/ListBox/ListBox";
+import { HStack } from "shared/ui/Stack";
+import Page from "widgets/Page/Page";
 
 function MainPage() {
   const { t } = useTranslation();
 
-  return <div>{t("Главная страница")}</div>;
+  return <Page>{t("Главная страница")}</Page>;
 }
 
 export default MainPage;
