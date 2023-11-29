@@ -52,7 +52,7 @@ const CountrySelect = memo((props: CountrySelectProps) => {
       defaultValue={t("Укажите страну")}
       readonly={readonly}
       label={t("Укажите страну")}
-      direction="top"
+      direction="top right"
     />
   );
 });
