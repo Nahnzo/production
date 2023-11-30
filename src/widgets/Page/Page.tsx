@@ -1,11 +1,11 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { MutableRefObject, ReactNode, memo, useRef, UIEvent, useEffect } from "react";
 import { useInfinityScroll } from "shared/lib/hooks/useInfinityScroll/useInfinityScroll";
-import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
-import { savePositionScrollActions } from "feautures/SavePositionScroll";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { savePositionScrollActions } from "features/SavePositionScroll";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getPositionScrollByPath } from "feautures/SavePositionScroll/model/selectors/savePositionScrollSelectors";
+import { getPositionScrollByPath } from "features/SavePositionScroll/model/selectors/savePositionScrollSelectors";
 import { StateScheme } from "app/providers/StoreProvider";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
 import styles from "./Page.module.scss";

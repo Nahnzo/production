@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { useAppDispatch } from "shared/lib/hooks/useAppDistpatch/useAppDispatch";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   ArticleSortField,
   ArticleTypeTabs,

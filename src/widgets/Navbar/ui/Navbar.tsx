@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import { LoginModal } from "feautures/AuthByUsername";
+import { LoginModal } from "features/AuthByUsername";
 import Button, { ThemeButton } from "shared/ui/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
