@@ -30,6 +30,16 @@ export default {
     __API__: "",
     __PROJECT__: "jest",
   },
+  reporters: [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        openReport: true,
+      },
+    ],
+  ],
   moduleNameMapper: {
     "\\.(s?css|less)$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
