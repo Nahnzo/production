@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect, Suspense } from "react";
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
 import { TextSize } from "shared/ui/Text/Text";
@@ -38,7 +38,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   return (
     <VStack gap="16" max className={classNames("", {}, [className])}>
       <Text size={TextSize.L} title={t("Комментарии")} />
-      <AddCommentForm onSendComment={onSendComment} />
+      <Suspense fallback="Идет загрузка">
+        <AddCommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
     </VStack>
   );

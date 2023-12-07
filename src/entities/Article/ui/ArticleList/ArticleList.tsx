@@ -21,20 +21,11 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) => {
   return new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((item, index) => (
-      <ArticleListItemSkeleton className={styles.card} view={view} key={index} />
-    ));
+    .map((item, index) => <ArticleListItemSkeleton className={styles.card} view={view} key={index} />);
 };
 
 const ArticleList = (props: ArticleListProps) => {
-  const {
-    articles,
-    className,
-    isLoading,
-    view = ArticleView.SMALL,
-    target,
-    virtualized = true,
-  } = props;
+  const { articles, className, isLoading, view = ArticleView.SMALL, target, virtualized = true } = props;
   const { t } = useTranslation();
 
   const isBig = view === ArticleView.BIG;
@@ -48,13 +39,7 @@ const ArticleList = (props: ArticleListProps) => {
     const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
     for (let i = fromIndex; i < toIndex; i += 1) {
       items.push(
-        <ArticleListItem
-          article={articles[i]}
-          view={view}
-          className={styles.card}
-          target={target}
-          key={`str + ${i}`}
-        />
+        <ArticleListItem article={articles[i]} view={view} className={styles.card} target={target} key={`str + ${i}`} />
       );
     }
     return (
@@ -73,13 +58,11 @@ const ArticleList = (props: ArticleListProps) => {
   }
 
   return (
-    <WindowScroller
-      onScroll={() => console.log("scroll")}
-      scrollElement={document.getElementById(PAGE_ID) as Element}
-    >
+    <WindowScroller onScroll={() => console.log("scroll")} scrollElement={document.getElementById(PAGE_ID) as Element}>
       {({ height, width, registerChild, onChildScroll, scrollTop, isScrolling }) => (
         <div
           className={classNames(styles.ArticleList, {}, [className, styles[view]])}
+          // @ts-ignore
           ref={registerChild}
         >
           {virtualized ? (
@@ -96,13 +79,7 @@ const ArticleList = (props: ArticleListProps) => {
             />
           ) : (
             articles.map((item) => (
-              <ArticleListItem
-                article={item}
-                view={view}
-                target={target}
-                key={item.id}
-                className={styles.card}
-              />
+              <ArticleListItem article={item} view={view} target={target} key={item.id} className={styles.card} />
             ))
           )}
           {isLoading && getSkeletons(view)}

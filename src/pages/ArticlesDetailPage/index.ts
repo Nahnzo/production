@@ -1,9 +1,7 @@
 import { ArticlesDetailPageAsync as ArticlesDetailPage } from "./ui/ArticlesDetailPage/ArticlesDetailPage.async";
 
-import { ArticleDetailsCommentSchema } from "./model/types/ArticleDetailCommentsSchema";
+export { ArticlesDetailPage };
 
-import { ArticleDetailRecommendationSchema } from "./model/types/ArticleDetailRecommendationSchema";
-
-export { ArticlesDetailPage, ArticleDetailsCommentSchema, ArticleDetailRecommendationSchema };
-
-export { ArticleDetailPageSchema } from "./model/types";
+export type { ArticleDetailPageSchema } from "./model/types";
+export type { ArticleDetailRecommendationSchema } from "./model/types/ArticleDetailRecommendationSchema";
+export type { ArticleDetailsCommentSchema } from "./model/types/ArticleDetailCommentsSchema";

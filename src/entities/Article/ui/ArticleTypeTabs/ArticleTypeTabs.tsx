@@ -21,32 +21,25 @@ const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
     () => [
       {
         value: ArticleType.ALL,
-        content: t("Все"),
+        content: t("Все") as string,
       },
       {
         value: ArticleType.ECONOMICS,
-        content: t("Экономика"),
+        content: t("Экономика") as string,
       },
       {
         value: ArticleType.SCIENCE,
-        content: t("Наука"),
+        content: t("Наука") as string,
       },
       {
         value: ArticleType.IT,
-        content: t("Айти"),
+        content: t("Айти") as string,
       },
     ],
     []
   );
 
-  return (
-    <Tabs
-      value={value}
-      tabs={typesTabs}
-      onTabClick={onTabClick}
-      className={classNames("", {}, [className])}
-    />
-  );
+  return <Tabs value={value} tabs={typesTabs} onTabClick={onTabClick} className={classNames("", {}, [className])} />;
 };
 
 export default ArticleTypeTabs;

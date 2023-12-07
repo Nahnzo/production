@@ -1,8 +1,4 @@
-export enum UserRole {
-  ADMIN = "ADMIN",
-  MANAGER = "MANAGER",
-  USER = "USER",
-}
+import { UserRole } from "features/editableProfileCard/model/consts/const";
 
 export interface User {
   id: number;
