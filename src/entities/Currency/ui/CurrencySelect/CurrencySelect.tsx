@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import ListBox from "shared/ui/ListBox/ListBox";
-import { Currency } from "../../index";
+import { Currency } from "../../model/types/currency";
 
 const options = [
   {

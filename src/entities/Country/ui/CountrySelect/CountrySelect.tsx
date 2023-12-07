@@ -1,7 +1,7 @@
+import ListBox from "shared/ui/ListBox/ListBox";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import ListBox from "shared/ui/ListBox/ListBox";
-import { Country } from "../../index";
+import { Country } from "../../model/types/country";
 
 const options = [
   {

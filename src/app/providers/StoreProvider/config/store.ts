@@ -3,16 +3,12 @@ import { CombinedState, Reducer, ReducersMapObject, configureStore } from "@redu
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { $api } from "shared/api/api";
-import { NavigateOptions, To } from "react-router-dom";
 import { savePositionScrollReducer } from "features/SavePositionScroll";
 import { rtkApi } from "shared/api/rtkApi";
 import { StateScheme, ThunkExtraArg } from "./StateSchema";
 import { createReducerManager } from "./reducerManager";
 
-export function createReduxStore(
-  initialState?: StateScheme,
-  asyncReducers?: ReducersMapObject<StateScheme>
-) {
+export function createReduxStore(initialState?: StateScheme, asyncReducers?: ReducersMapObject<StateScheme>) {
   const rootReducers: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     counter: counterReducer,
