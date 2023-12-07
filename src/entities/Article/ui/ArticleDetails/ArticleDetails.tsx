@@ -5,9 +5,7 @@ import Avatar from "shared/ui/Avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";
 import CalendarIcon from "shared/assets/icons/calendar-20-20.svg";
 import Icon from "shared/ui/Icon/Icon";
-import DynamicModuleLoader, {
-  ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import DynamicModuleLoader, { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { HStack, VStack } from "shared/ui/Stack";
@@ -81,12 +79,7 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <Avatar size={200} src={article?.img} />
         </HStack>
         <VStack gap="4" max>
-          <Text
-            title={article?.title}
-            text={article?.subtitle}
-            className={styles.title}
-            size={TextSize.L}
-          />
+          <Text title={article?.title} text={article?.subtitle} className={styles.title} size={TextSize.L} />
           <HStack gap="8" className={styles.articleInfo}>
             <Icon className={styles.icon} Svg={EyeIcon} />
             <Text text={String(article?.views)} />
@@ -103,7 +96,7 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap="16" className={classNames(styles.ArticleDetails, {}, [className])}>
+      <VStack gap="16" max className={classNames(styles.ArticleDetails, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

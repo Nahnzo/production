@@ -20,13 +20,13 @@ const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(styles.CommentCard, {}, [className])}>
+      <VStack gap="8" max className={classNames(styles.CommentCard, {}, [className])}>
         <div className={styles.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton width={100} height={16} className={styles.username} />
         </div>
         <Skeleton width="100%" height={50} className={styles.text} />
-      </div>
+      </VStack>
     );
   }
   if (!comment) {
