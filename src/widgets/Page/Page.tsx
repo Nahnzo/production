@@ -47,12 +47,7 @@ const Page = memo((props: PageProps) => {
   }, 500);
 
   return (
-    <main
-      ref={wrapperRef}
-      className={classNames(styles.Page, {}, [className])}
-      onScroll={onScroll}
-      id={PAGE_ID}
-    >
+    <main ref={wrapperRef} className={classNames(styles.Page, {}, [className])} onScroll={onScroll} id={PAGE_ID}>
       {children}
       {onScrollEnd ? <div ref={triggerRef} className={styles.trigger} /> : null}
     </main>
