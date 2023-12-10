@@ -1,4 +1,4 @@
-import ListBox from "shared/ui/ListBox/ListBox";
+import ListBox from "shared/ui/Popups/ui/ListBox/ListBox";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Country } from "../../model/types/country";

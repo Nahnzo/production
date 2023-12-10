@@ -8,7 +8,7 @@ export default function (): PluginItem {
         path.traverse({
           JSXIdentifier(current) {
             const nodeName = current.node.name;
-            if (forbidden.includes(nodeName)) {
+            if (Array.isArray(forbidden) && forbidden.includes(nodeName)) {
               current.parentPath.remove();
             }
           },

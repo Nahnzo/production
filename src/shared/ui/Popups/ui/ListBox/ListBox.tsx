@@ -3,8 +3,10 @@ import { Listbox as HListBox } from "@headlessui/react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DropdownDirection } from "shared/types/ui";
 import styles from "./ListBox.module.scss";
-import Button from "../Button/Button";
-import { HStack } from "../Stack";
+import Button from "../../../Button/Button";
+import popupStyles from "../../styles/popup.module.scss";
+import { HStack } from "../../../Stack";
+import { mapDirectionClass } from "../../styles/consts";
 
 export interface ListBoxItem {
   value: string;
@@ -22,24 +24,9 @@ export interface ListBoxProps {
   direction?: DropdownDirection;
   label?: string;
 }
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  "bottom left": styles.optionsBottomLeft,
-  "bottom right": styles.optionsBottomRight,
-  "top right": styles.optionsTopRight,
-  "top left": styles.optionsTopLeft,
-};
 
 const ListBox = (props: ListBoxProps) => {
-  const {
-    value,
-    className,
-    items,
-    defaultValue,
-    onChange,
-    readonly,
-    direction = "bottom right",
-    label,
-  } = props;
+  const { value, className, items, defaultValue, onChange, readonly, direction = "bottom right", label } = props;
 
   const optionsClasses = [mapDirectionClass[direction]];
 
@@ -49,7 +36,7 @@ const ListBox = (props: ListBoxProps) => {
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(styles.ListBox, {}, [className])}
+        className={classNames(styles.ListBox, {}, [className, popupStyles.popup])}
         value={value}
         onChange={onChange}
       >
@@ -62,8 +49,8 @@ const ListBox = (props: ListBoxProps) => {
               {({ active, selected }) => (
                 <li
                   className={classNames(styles.item, {
-                    [styles.active]: active,
-                    [styles.disabled]: item.disabled,
+                    [popupStyles.active]: active,
+                    [popupStyles.disabled]: item.disabled,
                   })}
                 >
                   {selected && "!"}

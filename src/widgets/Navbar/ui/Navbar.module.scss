@@ -1,42 +1,42 @@
 .Navbar {
-    width: 100%;
-    height: var(--navbar-height);
-    background: var(--inverted-bg-color);
-    display: flex;
-    align-items: center;
-    padding: 20px;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--inverted-bg-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .links,
-.dropdown {
-    margin-left: auto;
+.actions {
+  margin-left: auto;
 }
 
 .mainLink {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .appName {
-    width: var(--sidebar-width);
-    margin-left: 15px;
+  width: var(--sidebar-width);
+  margin-left: 15px;
 }
 
 .optionsBottomLeft {
-    top: 100%;
-    right: 0;
+  top: 100%;
+  right: 0;
 }
 
 .optionsBottomRight {
-    top: 100%;
-    left: 0;
+  top: 100%;
+  left: 0;
 }
 
 .optionsTopRight {
-    bottom: 100%;
-    left: 0;
+  bottom: 100%;
+  left: 0;
 }
 
 .optionsTopLeft {
-    bottom: 100%;
-    right: 0;
+  bottom: 100%;
+  right: 0;
 }

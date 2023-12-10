@@ -8,8 +8,9 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entiti
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import Dropdown from "shared/ui/Dropdown/Dropdown";
-import Avatar from "shared/ui/Avatar/Avatar";
+import { HStack } from "shared/ui/Stack";
+import { NotificationButton } from "features/notificationsButton";
+import { AvatarDropDown } from "features/avatarDropdown";
 import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -20,9 +21,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setIsAuthModal] = useState(false);
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -31,12 +29,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(true);
   }, []);
 
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
-
   if (authData) {
     return (
       <header className={classNames(styles.Navbar, {}, [className])}>
@@ -44,29 +36,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
         <AppLink to={RoutePath.articles_create} theme={AppLinkTheme.SECONDARY} className={styles.createBtn}>
           {t("Создать статью")}
         </AppLink>
-        <Dropdown
-          direction="bottom left"
-          className={styles.dropdown}
-          trigger={<Avatar size={30} src={authData.avatar} />}
-          items={[
-            ...(isAdminPanelAvailable
-              ? [
-                  {
-                    content: t("Админ"),
-                    href: RoutePath.admin_panel,
-                  },
-                ]
-              : []),
-            {
-              content: t("Профиль"),
-              href: RoutePath.profile + authData.id,
-            },
-            {
-              content: t("Выйти"),
-              onClick: onLogout,
-            },
-          ]}
-        />
+        <HStack gap="16" className={styles.actions}>
+          <NotificationButton />
+          <AvatarDropDown />
+        </HStack>
       </header>
     );
   }
