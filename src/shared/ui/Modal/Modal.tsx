@@ -1,17 +1,10 @@
 import { Mods, classNames } from "shared/lib/classNames/classNames";
-import {
-  MutableRefObject,
-  ReactEventHandler,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { MutableRefObject, ReactEventHandler, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { useTheme } from "app/providers/ThemeProvider";
 import React from "react";
 import styles from "./Modal.module.scss";
 import Portal from "../Portal/Portal";
+import Overlay from "../Overlay/Overlay";
 
 interface ModalProps {
   className?: string;
@@ -70,21 +63,14 @@ const Modal = (props: ModalProps) => {
     [styles.isClosing]: isClosing,
   };
 
-  const clickHandler = (event: React.MouseEvent) => {
-    event.stopPropagation();
-  };
-
   if (lazy && !isMounted) {
     return null;
   }
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className, theme, "app_modal"])}>
-        <div className={styles.overlay} onClick={closeHandler}>
-          <div className={styles.content} onClick={clickHandler}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={closeHandler} />
+        <div className={styles.content}>{children}</div>
       </div>
     </Portal>
   );

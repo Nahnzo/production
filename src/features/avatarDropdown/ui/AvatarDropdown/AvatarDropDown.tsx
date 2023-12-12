@@ -6,7 +6,6 @@ import { Dropdown } from "shared/ui/Popups";
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Avatar.module.scss";
 
 interface AvatarDropDownProps {
   className?: string;
@@ -30,7 +29,7 @@ const AvatarDropDown = (props: AvatarDropDownProps) => {
 
   return (
     <Dropdown
-      className={classNames(styles.AvatarDropdown, {}, [className])}
+      className={classNames("", {}, [className])}
       direction="bottom left"
       trigger={<Avatar size={30} src={authData.avatar} />}
       items={[
