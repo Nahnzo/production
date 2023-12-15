@@ -1,16 +1,16 @@
-import { useTheme } from "app/providers/ThemeProvider";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserMounted, userActions } from "entities/User";
+import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "./providers/router";
 
 function App() {
+  const mounted = useSelector(getUserMounted);
   const { theme } = useTheme();
   const dispatch = useDispatch();
-  const mounted = useSelector(getUserMounted);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

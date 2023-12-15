@@ -56,37 +56,38 @@ const ArticleList = (props: ArticleListProps) => {
       </div>
     );
   }
+  return <h1>Нету</h1>;
 
-  return (
-    <WindowScroller onScroll={() => console.log("scroll")} scrollElement={document.getElementById(PAGE_ID) as Element}>
-      {({ height, width, registerChild, onChildScroll, scrollTop, isScrolling }) => (
-        <div
-          className={classNames(styles.ArticleList, {}, [className, styles[view]])}
-          // @ts-ignore
-          ref={registerChild}
-        >
-          {virtualized ? (
-            <List
-              height={height ?? 700}
-              rowCount={rowCount}
-              rowHeight={isBig ? 700 : 330}
-              rowRenderer={rowRender}
-              width={width ? width - 80 : 700}
-              autoHeight
-              onScroll={onChildScroll}
-              isScrolling={isScrolling}
-              scrollTop={scrollTop}
-            />
-          ) : (
-            articles.map((item) => (
-              <ArticleListItem article={item} view={view} target={target} key={item.id} className={styles.card} />
-            ))
-          )}
-          {isLoading && getSkeletons(view)}
-        </div>
-      )}
-    </WindowScroller>
-  );
+  // return (
+  //   <WindowScroller onScroll={() => console.log("scroll")} scrollElement={document.getElementById(PAGE_ID) as Element}>
+  //     {({ height, width, registerChild, onChildScroll, scrollTop, isScrolling }) => (
+  //       <div
+  //         className={classNames(styles.ArticleList, {}, [className, styles[view]])}
+  //         // @ts-ignore
+  //         ref={registerChild}
+  //       >
+  //         {virtualized ? (
+  //           <List
+  //             height={height ?? 700}
+  //             rowCount={rowCount}
+  //             rowHeight={isBig ? 700 : 330}
+  //             rowRenderer={rowRender}
+  //             width={width ? width - 80 : 700}
+  //             autoHeight
+  //             onScroll={onChildScroll}
+  //             isScrolling={isScrolling}
+  //             scrollTop={scrollTop}
+  //           />
+  //         ) : (
+  //           articles.map((item) => (
+  //             <ArticleListItem article={item} view={view} target={target} key={item.id} className={styles.card} />
+  //           ))
+  //         )}
+  //         {isLoading && getSkeletons(view)}
+  //       </div>
+  //     )}
+  //   </WindowScroller>
+  // );
 };
 
 export default ArticleList;
