@@ -28,26 +28,30 @@ const Dropdown = (props: DropdownProps) => {
     <Menu as="div" className={classNames(styles.Dropdown, {}, [className, popupStyles.popup])}>
       <Menu.Button className={popupStyles.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               disabled={item.disabled}
               type="button"
               onClick={item.onClick}
               className={classNames(styles.item, { [popupStyles.active]: active })}
+              key={`${item.href}-${index}`}
             >
               {item.content}
             </button>
           );
           if (item.href) {
             return (
-              <Menu.Item disabled={item.disabled} as={AppLink} to={item.href}>
+              <Menu.Item disabled={item.disabled} as={AppLink} to={item.href} key={`${item.href}-${index}`}>
                 {content}
               </Menu.Item>
             );
           }
-
-          return <Menu.Item disabled={item.disabled}>{content}</Menu.Item>;
+          return (
+            <Menu.Item disabled={item.disabled} key={`${item.href}-${index}`}>
+              {content}
+            </Menu.Item>
+          );
         })}
       </Menu.Items>
     </Menu>
