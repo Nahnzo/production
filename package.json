@@ -109,6 +109,7 @@
     "react-router-dom": "^6.2.1",
     "react-virtualized": "^9.22.5",
     "stylelint": "^14.5.3",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint-config-standard-scss": "^3.0.0",
+    "ts-morph": "^16.0.0"
   }
 }
