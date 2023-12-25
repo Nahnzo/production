@@ -31,7 +31,7 @@ const AvatarDropDown = (props: AvatarDropDownProps) => {
     <Dropdown
       className={classNames("", {}, [className])}
       direction="bottom left"
-      trigger={<Avatar size={30} src={authData.avatar} />}
+      trigger={<Avatar size={30} fallbackInverted src={authData.avatar} />}
       items={[
         ...(isAdminPanelAvailable
           ? [

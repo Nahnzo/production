@@ -10,12 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { HTMLAttributeAnchorTarget } from "react";
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from "../../model/types/article";
+import Skeleton from "shared/ui/Skeleton/Skeleton";
+import AppImage from "shared/ui/AppImage/AppImage";
+import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from "../../model/types/article";
 import styles from "./ArticleListItem.module.scss";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 
@@ -40,9 +37,7 @@ const ArticleListItem = (props: ArticleListItemProps) => {
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT
-    ) as ArticleTextBlock;
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
       <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
         <Card className={styles.card}>
@@ -53,10 +48,13 @@ const ArticleListItem = (props: ArticleListItemProps) => {
           </div>
           <Text text={article.title} className={styles.title} />
           {types}
-          <img src={article.img} className={styles.img} alt={article.title} />
-          {textBlock && (
-            <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
-          )}
+          <AppImage
+            fallback={<Skeleton height="100%" width="250" />}
+            src={article.img}
+            className={styles.img}
+            alt={article.title}
+          />
+          {textBlock && <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />}
           <div className={styles.footer}>
             <AppLink to={RoutePath.articlesDetails + article.id} target={target}>
               <Button theme={ThemeButton.OUTLINE}>{t("Читать далее")}</Button>
@@ -75,7 +73,12 @@ const ArticleListItem = (props: ArticleListItemProps) => {
     >
       <Card className={styles.card}>
         <div className={styles.imageWrapper}>
-          <img src={article.img} className={styles.img} alt={article.title} />
+          <AppImage
+            fallback={<Skeleton width="200" height="200" />}
+            src={article.img}
+            className={styles.img}
+            alt={article.title}
+          />
           <Text text={article.createdAt} className={styles.date} />
         </div>
         <div className={styles.infoWrapper}>
