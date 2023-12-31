@@ -8,9 +8,10 @@ import { useSelector } from "react-redux";
 import { getPositionScrollByPath } from "features/SavePositionScroll/model/selectors/savePositionScrollSelectors";
 import { StateScheme } from "app/providers/StoreProvider";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
+import { TestProps } from "shared/types/tests";
 import styles from "./Page.module.scss";
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -47,7 +48,13 @@ const Page = memo((props: PageProps) => {
   }, 500);
 
   return (
-    <main ref={wrapperRef} className={classNames(styles.Page, {}, [className])} onScroll={onScroll} id={PAGE_ID}>
+    <main
+      ref={wrapperRef}
+      className={classNames(styles.Page, {}, [className])}
+      onScroll={onScroll}
+      id={PAGE_ID}
+      data-testid={props["data-testid"] ?? "Page"}
+    >
       {children}
       {onScrollEnd ? <div ref={triggerRef} className={styles.trigger} /> : null}
     </main>
